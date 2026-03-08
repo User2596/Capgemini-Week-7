@@ -20,7 +20,7 @@ public class Customer {
 	private String name;
 	
 	@OneToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name="customer_details")
+	@JoinColumn(name = "customer_details")
 	private CustomerDetails customerDetails;
 
 	public Customer() {}
