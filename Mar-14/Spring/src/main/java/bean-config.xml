@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:c="http://www.springframework.org/schema/c"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- bean definitions here -->
+	<bean name="student1" class="com.capgemini.Spring.Student">
+		<property name="id" value="100"></property>
+		<property name="name" value="Steven"></property>
+		<property name="gender" value="Male"></property>
+		<property name="marks" value="94"></property>
+	</bean>
+	
+	<!-- bean definitions here -->
+	<bean name="employee1" class="com.capgemini.Spring.Employee">
+		<constructor-arg name="id" value="102"></constructor-arg>
+		<constructor-arg name="name" value="Matthew"></constructor-arg>
+		<constructor-arg name="email" value="matthew@gmail.com"></constructor-arg>
+		<constructor-arg name="salary" value="120000.00"></constructor-arg>
+		<property name="student" ref="student1"></property>
+	</bean>
+	
+	<!-- Autowire
+	<bean name="employee2" class="com.capgemini.Spring.Employee" autowire="byName"> -->
+	<bean name="employee2" class="com.capgemini.Spring.Employee" autowire="byType">
+		<property name="id" value="1233"></property>
+		<!-- <property name="name" value="Raju"></property> -->
+		<property name="email" value="raj@gmail.com"></property>
+		<property name="salary" value="152000.00"></property>
+		<!-- <property name="student" ref="student2"></property> -->
+	</bean>
+	
+	<!-- Does not work for String -->
+	<bean name="str" class="java.lang.String">
+		<constructor-arg value="Anything"></constructor-arg>
+	</bean>
+	
+	<!-- bean definitions here
+	<bean name="student2" class="com.capgemini.Spring.Student">
+		<constructor-arg value="101"></constructor-arg>
+		<constructor-arg value="Sara"></constructor-arg>
+		<constructor-arg value="Female"></constructor-arg>
+		<constructor-arg value="85"></constructor-arg>
+	</bean> -->
+	
+</beans>
